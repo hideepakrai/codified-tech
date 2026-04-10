@@ -1,0 +1,78 @@
+{
+  "name": "codified",
+  "version": "1.0.0",
+  "description": "A blank template to get started with Payload 3.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "cross-env NODE_OPTIONS=--no-deprecation next build --webpack",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev --webpack",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev --webpack",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
+  },
+  "dependencies": {
+    "@lottiefiles/dotlottie-react": "^0.14.1",
+    "@payloadcms/db-mongodb": "3.76.0",
+    "@payloadcms/email-nodemailer": "^3.76.1",
+    "@payloadcms/next": "3.76.0",
+    "@payloadcms/payload-cloud": "3.76.0",
+    "@payloadcms/plugin-form-builder": "3.76.0",
+    "@payloadcms/plugin-nested-docs": "3.76.0",
+    "@payloadcms/plugin-seo": "^3.76.0",
+    "@payloadcms/richtext-lexical": "3.76.0",
+    "@payloadcms/storage-vercel-blob": "3.76.0",
+    "@payloadcms/ui": "3.76.0",
+    "@tailwindcss/postcss": "^4.1.8",
+    "@uidotdev/usehooks": "^2.4.1",
+    "@vercel/blob": "^2.3.0",
+    "classnames": "^2.5.1",
+    "cross-env": "^7.0.3",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.4.7",
+    "framer-motion": "^11.18.2",
+    "graphql": "^16.8.1",
+    "lucide-react": "^0.523.0",
+    "mongodb": "^6.13.0",
+    "motion": "^12.16.0",
+    "next": "^16.1.6",
+    "ogl": "^1.0.11",
+    "payload": "^3.76.0",
+    "payload-visual-editor": "^2.0.6",
+    "react": "^19.2.4",
+    "react-datepicker": "^8.4.0",
+    "react-dom": "^19.2.4",
+    "react-hook-form": "^7.59.0",
+    "react-icons": "^5.5.0",
+    "sharp": "^0.32.6",
+    "slugify": "^1.6.6",
+    "swiper": "^11.2.8"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^22.5.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "19.1.2",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.16.0",
+    "eslint-config-next": "15.3.0",
+    "postcss": "^8.5.4",
+    "prettier": "^3.4.2",
+    "tailwindcss": "^4.1.8",
+    "typescript": "5.7.3"
+  },
+  "packageManager": "pnpm@10.18.3",
+  "engines": {
+    "node": "^18.20.2 || >=20.9.0",
+    "pnpm": ">=10"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
+  }
+}

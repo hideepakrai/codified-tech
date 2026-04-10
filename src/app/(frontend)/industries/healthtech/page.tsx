@@ -1,0 +1,353 @@
+"use client"
+
+import React from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { AiOutlineMedicineBox } from "react-icons/ai";
+import { MdOutlineHealthAndSafety } from "react-icons/md";
+import { FaHeartbeat } from "react-icons/fa";
+import { PiRobot } from "react-icons/pi";
+import { VscGraph } from "react-icons/vsc";
+import { GrShieldSecurity } from "react-icons/gr";
+import { FAQSection } from "@/components/Homepage/Faq";
+
+const Healthtech = () => {
+    return (
+        <div className="bg-white text-gray-800">
+
+            {/* ================= HERO SECTION ================= */}
+            <section className="relative h-[90vh] flex items-center text-white overflow-hidden">
+
+                <Image
+                    src="/Image/Healthtech1.jpg"
+                    alt="Digital Healthcare Technology Platform"
+                    fill
+                    priority
+                    className="object-cover object-center"
+                />
+
+                <div className="absolute inset-0 bg-black/60"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0b1220]/90 via-[#0b1220]/60 to-transparent"></div>
+
+                <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+                    <div className="max-w-2xl">
+
+                        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                            Revolutionizing The Future Of <br />
+                            <span className="text-[#4facfe]">
+                                Digital Healthcare Innovation
+                            </span>
+                        </h1>
+
+                        <p className="text-gray-200 text-lg md:text-xl mb-10">
+                            Secure, scalable and AI-powered healthtech platforms including telemedicine systems,
+                            EHR solutions, remote patient monitoring and HIPAA-compliant ecosystems
+                            engineered for performance and trust.
+                        </p>
+
+                        <Link
+                            href="/contact-us"
+                            className="inline-block bg-[#4facfe] px-8 py-3 rounded-md font-semibold 
+                            hover:bg-white hover:text-black transition duration-300"
+                        >
+                            Get HealthTech Consultation
+                        </Link>
+
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= HEALTHCARE SERVICES ================= */}
+            <section className="py-28 max-w-7xl px-6 bg-gradient-to-b from-gray-50 to-white mx-auto">
+                <div className="max-w-7xl mx-auto text-center mb-14">
+                    <h2 className="text-5xl font-bold text-gray-900 mb-4">
+                        Advanced HealthTech Solutions For Modern Care
+                    </h2>
+                    <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Empowering healthcare providers with intelligent, compliant and patient-centric digital systems.
+                    </p>
+                </div>
+
+                <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {[
+                        {
+                            title: "Telemedicine Platforms",
+                            icon: <AiOutlineMedicineBox />,
+                            desc: "Secure virtual consultation systems with video, scheduling and e-prescriptions.",
+                        },
+                        {
+                            title: "EHR & EMR Systems",
+                            icon: <MdOutlineHealthAndSafety />,
+                            desc: "Centralized electronic health records with seamless interoperability.",
+                        },
+                        {
+                            title: "Remote Patient Monitoring",
+                            icon: <FaHeartbeat />,
+                            desc: "IoT-enabled monitoring systems with real-time health tracking.",
+                        },
+                        {
+                            title: "AI Diagnostics & Insights",
+                            icon: <PiRobot />,
+                            desc: "Predictive healthcare analytics powered by artificial intelligence.",
+                        },
+                        {
+                            title: "Healthcare Mobile Applications",
+                            icon: <VscGraph />,
+                            desc: "Patient engagement apps with appointment, billing and medication management.",
+                        },
+                        {
+                            title: "Compliance & Data Security",
+                            icon: <GrShieldSecurity />,
+                            desc: "HIPAA & GDPR compliant systems with enterprise-grade encryption.",
+                        },
+                    ].map((item, index) => (
+                        <div
+                            key={index}
+                            className="relative p-8 rounded-2xl bg-white shadow-lg border border-gray-200
+                            transform transition duration-500 hover:-translate-y-2 hover:shadow-2xl"
+                        >
+                            <div className="text-4xl mb-5 text-[#4facfe]">{item.icon}</div>
+
+                            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                                {item.title}
+                            </h3>
+
+                            <p className="text-gray-600 text-md">{item.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+
+            {/* ================= HEALTHCARE INFRASTRUCTURE ================= */}
+            <section className="bg-[#0d1525] text-white py-28">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-20 items-center">
+
+                    <div>
+                        <span className="text-[#4facfe] font-semibold tracking-wider uppercase text-sm">
+                            Healthcare Infrastructure
+                        </span>
+
+                        <h2 className="text-4xl lg:text-5xl font-bold mt-4 mb-6 leading-tight">
+                            Secure & Scalable <br />
+                            HealthTech Architecture
+                        </h2>
+
+                        <p className="text-gray-400 mb-10 max-w-lg">
+                            Cloud-native healthcare ecosystems engineered for compliance,
+                            interoperability and real-time patient data processing.
+                        </p>
+
+                        <div className="space-y-6">
+
+                            {[
+                                "HIPAA-compliant cloud infrastructure",
+                                "FHIR-based EHR interoperability",
+                                "AI-powered clinical decision support",
+                                "End-to-end encrypted patient data systems"
+                            ].map((point, i) => (
+                                <div key={i} className="flex items-start gap-4">
+                                    <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#4facfe]/20 text-[#4facfe]">
+                                        ✓
+                                    </div>
+                                    <p className="text-gray-300">{point}</p>
+                                </div>
+                            ))}
+
+                        </div>
+                    </div>
+
+                    <div className="relative">
+
+                        <div className="absolute inset-0 bg-gradient-to-tr from-[#4facfe] to-purple-500 opacity-20 blur-3xl rounded-3xl"></div>
+
+                        <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl shadow-2xl">
+
+                            <h3 className="text-2xl font-semibold mb-8">
+                                Why Healthcare Providers Trust Us
+                            </h3>
+
+                            <div className="grid grid-cols-2 gap-8">
+                                <div>
+                                    <h4 className="text-3xl font-bold text-[#4facfe]">15+</h4>
+                                    <p className="text-gray-400 text-sm mt-2">Years Experience</p>
+                                </div>
+                                <div>
+                                    <h4 className="text-3xl font-bold text-[#4facfe]">100%</h4>
+                                    <p className="text-gray-400 text-sm mt-2">Compliance Focus</p>
+                                </div>
+                                <div>
+                                    <h4 className="text-3xl font-bold text-[#4facfe]">1M+</h4>
+                                    <p className="text-gray-400 text-sm mt-2">Patients Supported</p>
+                                </div>
+                                <div>
+                                    <h4 className="text-3xl font-bold text-[#4facfe]">24/7</h4>
+                                    <p className="text-gray-400 text-sm mt-2">Security Monitoring</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            {/* ================= STRATEGIC DELIVERY PROCESS (HEALTHTECH VERSION) ================= */}
+            <section className="py-24 px-6 bg-gray-50">
+                <div className="max-w-7xl mx-auto">
+
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                            Our Strategic HealthTech Delivery Process
+                        </h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">
+                            A secure, compliance-driven and patient-focused development approach
+                            designed to build reliable digital healthcare ecosystems.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-4 gap-10 relative">
+
+                        {[
+                            {
+                                step: "01",
+                                title: "Healthcare Discovery",
+                                desc: "We analyze clinical workflows, patient journeys, regulatory requirements and compliance standards like HIPAA & GDPR."
+                            },
+                            {
+                                step: "02",
+                                title: "Clinical System Architecture",
+                                desc: "We design secure, interoperable health systems with FHIR standards, scalable cloud infrastructure and seamless integrations."
+                            },
+                            {
+                                step: "03",
+                                title: "Agile HealthTech Development",
+                                desc: "Our team develops telemedicine platforms, EHR systems and AI health tools in structured sprints with continuous feedback."
+                            },
+                            {
+                                step: "04",
+                                title: "Compliance Testing & Deployment",
+                                desc: "We conduct rigorous QA, security audits and performance testing before secure cloud deployment."
+                            },
+                        ].map((item, i) => (
+                            <div
+                                key={i}
+                                className="bg-white p-8 rounded-xl border border-gray-200 
+                    hover:shadow-xl transition duration-300"
+                            >
+
+                                <div className="text-[#4facfe] text-4xl font-bold mb-4">
+                                    {item.step}
+                                </div>
+
+                                <h3 className="text-xl font-semibold mb-3 text-gray-900">
+                                    {item.title}
+                                </h3>
+
+                                <p className="text-gray-600 text-sm leading-relaxed">
+                                    {item.desc}
+                                </p>
+
+                            </div>
+                        ))}
+
+                    </div>
+                </div>
+            </section>
+
+
+            {/* ================= TRUSTED TECHNOLOGIES (UNCHANGED) ================= */}
+            <section className="bg-[#0d1525] text-white py-24 px-6 overflow-hidden">
+
+                <div className="max-w-7xl mx-auto text-center">
+
+                    <h2 className="text-4xl font-bold mb-4">
+                        Our Technology Stack
+                    </h2>
+
+                    <p className="text-gray-300 mb-16">
+                        Built on reliable, future-ready technologies to ensure performance and security .
+                    </p>
+
+                    {/* Infinite Scroll Wrapper */}
+                    <div className="relative w-full overflow-hidden">
+                        <div className="flex gap-10 animate-scroll min-w-max">
+
+                            {[
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg",
+                                "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg",
+
+                                // duplicate for infinite effect
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg",
+                                "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
+                                "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg",
+                            ].map((src, i) => (
+                                <div
+                                    key={i}
+                                    className="w-36 h-24 bg-white rounded-xl flex items-center justify-center shrink-0"
+                                >
+                                    <img
+                                        src={src}
+                                        alt="tech logo"
+                                        className="w-14 h-14 object-contain"
+                                    />
+                                </div>
+                            ))}
+
+                        </div>
+                    </div>
+
+                    {/* Stats Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 mt-20">
+                        {[
+                            { number: "500+", label: "Happy Clients" },
+                            { number: "50+", label: "Team Members" },
+                            { number: "15+", label: "Years Experience" },
+                            { number: "1000+", label: "Projects Completed" },
+                            { number: "24/7", label: "Support" }
+                        ].map((item, i) => (
+                            <div
+                                key={i}
+                                className="bg-[#10203a] border border-white/10 rounded-xl p-6 text-left hover:bg-[#13284d] transition-colors"
+                            >
+                                <h3 className="text-3xl font-bold mb-1">{item.number}</h3>
+                                <p className="text-gray-300">{item.label}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                </div>
+            </section>
+            <FAQSection />
+
+        </div>
+
+
+    )
+}
+
+export default Healthtech

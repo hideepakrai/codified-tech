@@ -1,0 +1,54 @@
+.tohide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollhide::-webkit-scrollbar {
+  width: 4px;
+  background-color: white;
+  height: 80%;
+}
+
+.scrollhide::-webkit-scrollbar-thumb {
+  background-color: gray;
+  height: 5px;
+}
+
+.squares-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: transparent;
+}
+
+/* Scrollbar container */
+.custom-scrollbar {
+  overflow-x: auto;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: white #2b2a36; /* thumb track */
+}
+
+/* For WebKit (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #2b2a36; /* Dark background */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: white; /* White thumb */
+  border-radius: 10px;
+}
+
+
+.bg-section{
+  background-color: #F7F8FC;
+}
+
+p{
+   /* font-family: "Poppins", sans-serif !important; */
+  font-family: "Open Sans", sans-serif !important;
+
+}

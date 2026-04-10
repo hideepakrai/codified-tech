@@ -1,0 +1,78 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.notfound-container {
+  background-color: #000;
+  color: #fff;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.notfound-title {
+  font-size: 8rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  animation: slideDown 1s ease forwards;
+}
+
+.notfound-message {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  color: #aaa;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.notfound-button {
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  border: 2px solid #fff;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  transition: 0.3s;
+  text-decoration: none;
+  color: #fff;
+}
+
+.notfound-button:hover {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 0 10px #fff;
+}
+
+.notfound-footer {
+  position: absolute;
+  bottom: 1rem;
+  font-size: 0.75rem;
+  color: #666;
+  animation: fadeIn 3s ease-in;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
