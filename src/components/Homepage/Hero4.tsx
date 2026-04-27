@@ -46,7 +46,7 @@ export const Hero4 = ({ hero4 }: any) => {
             transition={{ delay: idx * 0.1 }}
           >
             <div className="mb-4">{icons[idx % icons.length]}</div>
-            <h3 className="text-xl font-semibold mb-2 text-black">{card.heading}</h3>
+            <h4 className="text-xl font-semibold mb-2 text-black">{card.heading}</h4>
             <p className="text-gray-700 text-sm">{card.description}</p>
           </motion.div>
         ))}

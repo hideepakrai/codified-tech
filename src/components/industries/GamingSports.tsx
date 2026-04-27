@@ -6,9 +6,9 @@ const GamingSports = () => {
 
       {/* Hero Section */}
       <section className="py-20 px-6 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#4facfe] to-[#9b5cff] bg-clip-text text-transparent mb-6">
+        <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#4facfe] to-[#9b5cff] bg-clip-text text-transparent mb-6">
           Gaming & Sports Technology Solutions
-        </h1>
+        </h2>
         <p className="max-w-3xl mx-auto text-gray-300">
           We build high-performance gaming platforms and sports tech ecosystems powered by AI,
           real-time analytics, and immersive digital experiences. From fantasy leagues to esports platforms,

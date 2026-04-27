@@ -113,9 +113,9 @@ export const FAQSection = () => {
                 onClick={() => toggle(index)}
                 className="w-full flex justify-between items-center px-6 py-5 text-left text-lg md:text-xl font-medium focus:outline-none"
               >
-                <span className="text-black">
+                <h3 className="text-black text-lg md:text-xl font-medium">
                   {getPlainTextFromLexical(faq.question)}
-                </span>
+                </h3>
 
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}

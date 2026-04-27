@@ -33,7 +33,7 @@ export const Hero2 = ({ hero2 }: any) => {
           {headingLeft}
         </motion.h2>
 
-        <h3 className="text-2xl lg:text-3xl font-semibold text-gray-800">{headingRight}</h3>
+        <p className="text-2xl lg:text-3xl font-semibold text-gray-800">{headingRight}</p>
 
         <p className="text-gray-700">{descriptionLeft}</p>
 
@@ -75,7 +75,7 @@ export const Hero2 = ({ hero2 }: any) => {
               <div className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[#4993cd] bg-transparent">
                 <Icon className="w-6 h-6 text-[#4993cd]" />
               </div>
-              <h3 className="text-xl font-semibold text-[#000]">{card.heading}</h3>
+              <h4 className="text-xl font-semibold text-[#000]">{card.heading}</h4>
               <p className="text-sm text-gray-600">{card.description}</p>
             </motion.div>
           )

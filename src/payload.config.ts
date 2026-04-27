@@ -45,8 +45,7 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 const hasBlobToken = Boolean(process.env.BLOB_READ_WRITE_TOKEN)
-console.log("BLOB TOKEN:", process.env.BLOB_READ_WRITE_TOKEN)
-console.log("hasBlobToken:", hasBlobToken)
+
 
 const hasSMTP = Boolean(
   process.env.SMTP_HOST &&

@@ -249,7 +249,7 @@ export const ConsultationModal = () => {
   }
 
   if (!isOpen) return null
-  if (!form) return <h1>Loading...</h1>
+  if (!form) return <p>Loading...</p>
 
   const heading = resolveText(formMeta.title, 'Free Consultation')
   const description = resolveText(

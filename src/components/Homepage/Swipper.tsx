@@ -234,7 +234,7 @@ export const Swipper = ({ cards = [], industries = [] }: Props) => {
                   <span className="size-14 text-xl font-bold rounded-full flex items-center justify-center border-2 border-gray-500">
                     {card.heading?.charAt(0) || 'H'}
                   </span>
-                  <h3 className="text-xl font-semibold">{card.heading}</h3>
+                  <h4 className="text-xl font-semibold">{card.heading}</h4>
                   <p className="text-sm text-gray-300 h-18 text-wrap">
                     {card.description}
                   </p>

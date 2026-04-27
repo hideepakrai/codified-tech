@@ -23,14 +23,14 @@ export const Hero3 = ({ hero3, industries }: any) => {
         className="grid grid-cols-1 gap-5 justify-items-center"
       >
         <div className="max-w-[520px] md:max-w-full flex flex-col gap-6">
-          <h1 className="text-4xl lg:text-5xl font-extrabold relative inline-block w-fit">
+          <h2 className="text-4xl lg:text-5xl font-extrabold relative inline-block w-fit">
             {heading}
             <span className="absolute bottom-0 left-0 h-[3px] w-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-pulse"></span>
-          </h1>
-
-          <h2 className="text-xl lg:text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">
-            {subheading}
           </h2>
+
+          <p className="text-xl lg:text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+            {subheading}
+          </p>
 
           <p className="text-gray-300 leading-relaxed">{description}</p>
         </div>

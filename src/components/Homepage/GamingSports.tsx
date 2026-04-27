@@ -9,9 +9,9 @@ const GamingSports = () => {
 
       {/* ================= HERO — Industry Header ================= */}
       <section className="bg-gradient-to-r from-[#071326] to-[#0c1f3f] text-white py-24 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4">
           Gaming & Sports Technology Solutions
-        </h1>
+        </h2>
         <p className="max-w-2xl mx-auto text-gray-200">
           Custom built gaming platforms, fantasy sports systems, esports ecosystems,
           real-time data analytics, and immersive fan engagement solutions.

@@ -8,7 +8,7 @@ import { Techstacks } from '@/components/ServicesPage/Techstack'
 import { WhyUs } from '@/components/ServicesPage/Whyus'
 import { Trustedby } from '@/components/Trusted'
 import { Advancetech } from '@/components/ServicesPage/Advancetech'
-import type { Page, Service } from '@/payload-types'
+import type { Page } from '@/payload-types'
 import { DEFAULT_META_DESCRIPTION } from '@/lib/seoDefaults'
 
 export const dynamic = 'force-dynamic'
@@ -39,42 +39,22 @@ export async function generateMetadata({ params }: PageProps) {
     overrideAccess: true,
   })
 
+  console.log(data)
+
   const page = await resolvePageBySlug(
     payloadInstance,
     slug,
     data.docs?.[0] as Page | undefined,
   )
-  if (page) {
-    return {
-      title:
-        page?.meta?.title ??
-        page?.metaTitle ??
-        'Codified Solutions',
-      description:
-        page?.meta?.description ??
-        page?.metaDescription ??
-        DEFAULT_META_DESCRIPTION,
-    }
-  }
-
-  const serviceData = await safeFind(payloadInstance, {
-    collection: 'services',
-    where: { slug: { equals: slug } },
-    limit: 1,
-    overrideAccess: true,
-  })
-
-  const service = await resolveServiceBySlug(
-    payloadInstance,
-    slug,
-    serviceData.docs?.[0] as Service | undefined,
-  )
 
   return {
-    title: service?.meta?.title ?? service?.title ?? 'Codified Solutions',
+    title:
+      page?.meta?.title ??
+      page?.metaTitle ??
+      'Codified Solutions',
     description:
-      service?.meta?.description ??
-      service?.shortDescription ??
+      page?.meta?.description ??
+      page?.metaDescription ??
       DEFAULT_META_DESCRIPTION,
   }
 }
@@ -109,33 +89,6 @@ const safeFind = async (
     console.error('Payload find failed:', err)
     return { docs: [] } as { docs: unknown[] }
   }
-}
-
-const renderLexical = (value: unknown) => {
-  if (!value) return null
-  if (typeof value === 'string') {
-    return <p>{value}</p>
-  }
-
-  const paragraphs = Array.isArray((value as LexicalRoot)?.root?.children)
-    ? (value as LexicalRoot).root?.children
-    : null
-  if (!paragraphs) return null
-
-  return paragraphs.map((paragraph, i: number) => {
-    if (!Array.isArray(paragraph?.children)) return null
-    const text = paragraph.children
-      .map((child) => (typeof child?.text === 'string' ? child.text : ''))
-      .join('')
-      .trim()
-
-    if (!text) return null
-    return (
-      <p key={i} className="mb-4 text-gray-700 leading-relaxed">
-        {text}
-      </p>
-    )
-  })
 }
 
 const normalizeSlug = (value: string) =>
@@ -236,42 +189,6 @@ const humanizeSlug = (value: string) =>
     .trim()
     .replace(/\b\w/g, (char) => char.toUpperCase())
 
-const resolveServiceBySlug = async (
-  payloadInstance: PayloadInstance,
-  slug: string,
-  direct?: Service | null,
-): Promise<Service | undefined> => {
-  if (direct) return direct
-  if (!slug) return undefined
-
-  const { docs } = await safeFind(payloadInstance, {
-    collection: 'services',
-    limit: 200,
-    overrideAccess: true,
-  })
-
-  const serviceDocs = docs as Service[]
-
-  const normalized = normalizeSlug(slug)
-  const normalizedLoose = normalizeLoose(slug)
-  const exactMatch = serviceDocs.find((doc) => {
-    const docSlug = typeof doc?.slug === 'string' ? doc.slug : ''
-    const docTitle = typeof doc?.title === 'string' ? doc.title : ''
-    const slugCandidates = buildMatchCandidates(docSlug)
-    const titleCandidates = buildMatchCandidates(docTitle)
-    return (
-      slugCandidates.has(normalized) ||
-      slugCandidates.has(normalizedLoose) ||
-      titleCandidates.has(normalized) ||
-      titleCandidates.has(normalizedLoose) ||
-      normalizeForMatch(docSlug) === normalized ||
-      normalizeSlug(docTitle) === normalized
-    )
-  })
-
-  return exactMatch || findFuzzyMatch(serviceDocs, slug)
-}
-
 const resolvePageBySlug = async (
   payloadInstance: PayloadInstance,
   slug: string,
@@ -316,61 +233,25 @@ const SingleServicesPage = async ({ params }: PageProps) => {
 
   const payloadInstance = await getPayload({ config })
   await ensurePayloadConnected(payloadInstance)
-  const [pagedata, serviceData] = await Promise.all([
-    safeFind(payloadInstance, {
-      collection: 'pages',
-      where: { slug: { equals: slug } },
-      limit: 1,
-      overrideAccess: true,
-    }),
-    safeFind(payloadInstance, {
-      collection: 'services',
-      where: { slug: { equals: slug } },
-      limit: 1,
-      overrideAccess: true,
-    }),
-  ])
+
+  const pagedata = await safeFind(payloadInstance, {
+    collection: 'pages',
+    where: { slug: { equals: slug } },
+    limit: 1,
+    overrideAccess: true,
+  })
 
   const page = await resolvePageBySlug(
     payloadInstance,
     slug,
     pagedata.docs?.[0] as Page | undefined,
   )
-  const service = await resolveServiceBySlug(
-    payloadInstance,
-    slug,
-    serviceData.docs?.[0] as Service | undefined,
-  )
+
+  if (!page) notFound()
 
   const requested = normalizeSlug(slug)
   if (page?.slug && normalizeSlug(page.slug) !== requested) {
     redirect(`/services/${extractSlugSegment(page.slug)}`)
-  }
-  if (!page && service?.slug && normalizeSlug(service.slug) !== requested) {
-    redirect(`/services/${extractSlugSegment(service.slug)}`)
-  }
-  if (!page) {
-    if (!service) notFound()
-
-    return (
-      <section className="px-6 py-16 md:px-20">
-        <div className="max-w-5xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">
-            {service.title}
-          </h1>
-          {service.shortDescription && (
-            <p className="text-lg text-gray-600 mb-8">
-              {service.shortDescription}
-            </p>
-          )}
-          {service.content && (
-            <div className="prose max-w-none">
-              {renderLexical(service.content)}
-            </div>
-          )}
-        </div>
-      </section>
-    )
   }
 
   // ✅ Normalize blocks
@@ -386,11 +267,10 @@ const SingleServicesPage = async ({ params }: PageProps) => {
 
   const heroBlock = findBlock('Hero', 'hero')
   const heroFallback = {
-    heading: page?.title ?? service?.title ?? humanizeSlug(slug),
+    heading: page?.title ?? humanizeSlug(slug),
     subheading:
       page?.meta?.description ??
       page?.metaDescription ??
-      service?.shortDescription ??
       '',
   }
   const hero = { ...heroFallback, ...(heroBlock || {}) }
@@ -398,7 +278,7 @@ const SingleServicesPage = async ({ params }: PageProps) => {
   const techstack = findBlock('Tech Stack')
   const AdvanceTech = findBlock('Advance Tech')
   const TrustedBy = findBlock('Trustedby')
-
+  console.log(hero, whyus)
 
   return (
     <section className="relative">
@@ -407,7 +287,6 @@ const SingleServicesPage = async ({ params }: PageProps) => {
       <Techstacks techstack={techstack} />
       <Advancetech AdvanceTech={AdvanceTech} />
       <Trustedby TrustedBy={TrustedBy} />
-
     </section>
   )
 }

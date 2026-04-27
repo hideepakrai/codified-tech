@@ -20,7 +20,7 @@ type HeaderLogo = {
 }
 
 export const Header = ({ data, logo }: { data: any; logo?: HeaderLogo }) => {
-  console.log('HEADER DATA 👉', data)
+
 
   const [activeCategory, setActiveCategory] = useState<any>(null)
   const { openModal } = useModal()
@@ -112,7 +112,7 @@ export const Header = ({ data, logo }: { data: any; logo?: HeaderLogo }) => {
         controls.start({ y: '0%' })
       }
     }
-    
+
   }, [direction, scrollY, pathname, size])
 
   const toggleDropdown = (key: string) => {
@@ -128,7 +128,7 @@ export const Header = ({ data, logo }: { data: any; logo?: HeaderLogo }) => {
       transition={{ duration: 0.3 }}
       className="fixed top-0 w-full z-50 transition-colors duration-300 py-4 bg-[#101828]"
     >
-     
+
       <nav className="relative flex justify-between items-center h-[72px] px-5 md:px-20">
         <Link href="/">
           <Image
@@ -216,7 +216,7 @@ export const Header = ({ data, logo }: { data: any; logo?: HeaderLogo }) => {
                                     className="block px-4 py-2 w-full text-[17px]"
                                     href={d.link}
                                   >
-                                    {d.categoryTitle} 
+                                    {d.categoryTitle}
                                   </Link>
                                 ) : (
                                   <span className="block px-4 py-2 w-full text-[17px]">
@@ -371,23 +371,23 @@ export const Header = ({ data, logo }: { data: any; logo?: HeaderLogo }) => {
 
                   {d.hasDropdown &&
                     openDropdown === d.label.toLowerCase() && (
-                    <ul className="ml-4 mt-2 space-y-2 text-sm">
-                      {d.dropdownItems.map((d: any) => (
-                        <li key={d.id}>
-                          <p className="font-semibold mt-2">{d.categoryTitle}</p>
-                          <ul className="ml-2">
-                            {d.subServices.map((item: any) => (
-                              <li key={item.id}>
-                                <Link href={item.link} onClick={() => setMobileOpen(false)}>
-                                  {item.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                      <ul className="ml-4 mt-2 space-y-2 text-sm">
+                        {d.dropdownItems.map((d: any) => (
+                          <li key={d.id}>
+                            <p className="font-semibold mt-2">{d.categoryTitle}</p>
+                            <ul className="ml-2">
+                              {d.subServices.map((item: any) => (
+                                <li key={item.id}>
+                                  <Link href={item.link} onClick={() => setMobileOpen(false)}>
+                                    {item.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                 </li>
               ))}
               <li>
